@@ -3,7 +3,7 @@ Aero Window Manager is a configuration utility for modifying the metrics of obje
 
 ## How to install
 
-The MSVC runtime is required to run AWM. If the application doesn't launch after performing the steps below, please try installing that first.
+MSVC runtime 2019 or later is required to run AWM. If the application doesn't launch after performing the steps below, please try installing that first.
 
 1. Unzip the contents of the file you downloaded to `C:\awm`. This should make the path of `awmdll.dll` be `C:\awm\awmdll.dll`. **NOTE**: You can name the root folder differently, but it has to be in the root of the C:\ drive for the application to function properly.
 2. Open a `cmd` process as administrator and execute the command `regsvr32 c:\awm\msdia140_awm.dll`. A message should pop up telling you that the operation has succeeded.
