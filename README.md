@@ -9,12 +9,12 @@ Aero Window Manager is a configuration utility for modifying the metrics of obje
 
 3. Download [PsTools](https://learn.microsoft.com/en-us/sysinternals/downloads/pstools).
 4. In a `cmd` process running as administrator, navigate to the folder that you unzipped PsTools into (for example `c:\pstools`) and run the following command: `psexec64 -s -i cmd.exe`. This should open a new Command Prompt window running as SYSTEM.
-5. In this new Command Prompt window, type `cd c:\awm` (or the folder you installed AWM to), followed by `injector`. After the injector process has initialized and injected `awmdll.dll` into DWM, a new console window titled "dwm.exe" should open. Do not close this window, as it will restart DWM. The awmdll.dll process will download symbols from Microsoft's servers (saved to `C:\awm\symbols`), after which it will hook into different functions within DWM, modifying their behavior. Then, clicking on any window should update its appearance to match that produced by AWM. 
+5. In this new Command Prompt window, type `cd c:\awm` (or the folder you installed AWM to), followed by `injector`. After the injector process has initialized and injected `awmdll.dll` into DWM, a new console window titled "dwm.exe" should open. Do not close this window, as it will restart DWM. The awmdll.dll process will download symbols from Microsoft's servers (saved to `C:\awm\symbols`), after which it will hook into different functions within DWM, modifying their behavior. Then, clicking on any window should update its appearance to match that produced by AWM. \
 **NOTE**: An update that makes the "dwm.exe" window not open anymore will be pushed soon.
 
 ## Credits
-Dulappy: AWM
-Valinet: libvalinet
-Microsoft: msdia140.dll
+Dulappy: AWM\
+Valinet: libvalinet\
+Microsoft: msdia140.dll\
 
 I might be forgetting minor contributors. If you think you've contributed to anything in the project, please let me know.
