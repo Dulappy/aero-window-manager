@@ -1,0 +1,22 @@
+﻿  awminject.cpp
+C:\Users\alexm\Documents\awm\libraries\libvalinet\valinet\hooking\exeinject.h(328,9): warning C4477: 'wprintf' : format string '%x' requires an argument of type 'unsigned int', but variadic argument 1 has type 'uintptr_t'
+C:\Users\alexm\Documents\awm\libraries\libvalinet\valinet\hooking\exeinject.h(328,9): message : consider using '%llx' in the format string
+C:\Users\alexm\Documents\awm\libraries\libvalinet\valinet\hooking\exeinject.h(328,9): message : consider using '%Ix' in the format string
+C:\Users\alexm\Documents\awm\libraries\libvalinet\valinet\hooking\exeinject.h(328,9): message : consider using '%I64x' in the format string
+C:\Users\alexm\Documents\awm\libraries\libvalinet\valinet\hooking\exeinject.h(361,9): warning C4477: 'wprintf' : format string '%d' requires an argument of type 'int', but variadic argument 1 has type 'FARPROC'
+C:\Users\alexm\Documents\awm\libraries\libvalinet\valinet\hooking\exeinject.h(361,9): warning C4313: 'wprintf': '%d' in format string conflicts with argument 1 of type 'FARPROC'
+C:\Users\alexm\Documents\awm\libraries\libvalinet\valinet\hooking\exeinject.h(382,9): warning C4477: 'wprintf' : format string '%d' requires an argument of type 'int', but variadic argument 1 has type 'FARPROC'
+C:\Users\alexm\Documents\awm\libraries\libvalinet\valinet\hooking\exeinject.h(382,9): warning C4313: 'wprintf': '%d' in format string conflicts with argument 1 of type 'FARPROC'
+C:\Users\alexm\Documents\awm\libraries\libvalinet\valinet\hooking\exeinject.h(759,41): warning C4312: 'type cast': conversion from 'DWORD' to 'HMODULE' of greater size
+C:\Users\alexm\Documents\awm\libraries\libvalinet\valinet\hooking\exeinject.h(963,13): warning C4477: 'wprintf' : format string '%d' requires an argument of type 'int', but variadic argument 1 has type 'SIZE_T'
+C:\Users\alexm\Documents\awm\libraries\libvalinet\valinet\hooking\exeinject.h(963,13): message : consider using '%lld' in the format string
+C:\Users\alexm\Documents\awm\libraries\libvalinet\valinet\hooking\exeinject.h(963,13): message : consider using '%Id' in the format string
+C:\Users\alexm\Documents\awm\libraries\libvalinet\valinet\hooking\exeinject.h(963,13): message : consider using '%I64d' in the format string
+C:\Users\alexm\Documents\awm\libraries\libvalinet\valinet\hooking\exeinject.h(963,13): warning C4477: 'wprintf' : format string '%d' requires an argument of type 'int', but variadic argument 2 has type 'size_t'
+C:\Users\alexm\Documents\awm\libraries\libvalinet\valinet\hooking\exeinject.h(963,13): message : consider using '%zd' in the format string
+C:\Users\alexm\Documents\awm\libraries\libvalinet\valinet\hooking\exeinject.h(1022,17): warning C4477: 'fprintf' : format string '%d' requires an argument of type 'int', but variadic argument 1 has type 'HWND'
+C:\Users\alexm\Documents\awm\libraries\libvalinet\valinet\hooking\exeinject.h(1022,17): warning C4313: 'fprintf': '%d' in format string conflicts with argument 1 of type 'HWND'
+C:\Users\alexm\Documents\awm\libraries\libvalinet\valinet\hooking\exeinject.h(1103,1): warning C4312: 'type cast': conversion from 'DWORD' to 'LPVOID' of greater size
+C:\Users\alexm\Documents\awm\injector\awminject.cpp(19,25): warning C4390: ';': empty controlled statement found; is this the intent?
+C:\Users\alexm\Documents\awm\injector\awminject.cpp(25,10): warning C4390: ';': empty controlled statement found; is this the intent?
+  injector.vcxproj -> C:\Users\alexm\Documents\awm\x64\Debug\injector.exe
