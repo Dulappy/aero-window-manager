@@ -1,5 +1,5 @@
 # Aero Window Manager
-Aero Window Manager is a configuration utility for modifying the metrics of objects drawn by DWM frames on Windows 10. It currently supports 1809 (build 17763), 1903/09 (builds 18062 and 18063), as well as 2004-22H2 (builds 19041-19045).
+Aero Window Manager is a configuration utility for modifying the metrics of objects drawn by DWM frames on Windows 10. It currently supports 1809 (build 17763), 1903/09 (builds 18362 and 18363), as well as 2004-22H2 (builds 19041-19045).
 
 ## How to install
 
