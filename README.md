@@ -15,6 +15,7 @@ Aero Window Manager is a configuration utility for modifying the metrics of obje
 ## Credits
 Dulappy: AWM\
 Valinet: libvalinet\
+Neptune: Temporary GUI\
 Microsoft: msdia140.dll
 
 I might be forgetting minor contributors. If you think you've contributed to anything in the project, please let me know.
