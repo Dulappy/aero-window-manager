@@ -1,33 +1,32 @@
 ﻿  awminject.cpp
-C:\Users\alexm\Documents\awm\libraries\libvalinet\valinet\hooking\exeinject.h(332,9): warning C4477: 'wprintf' : format string '%x' requires an argument of type 'unsigned int', but variadic argument 1 has type 'uintptr_t'
-C:\Users\alexm\Documents\awm\libraries\libvalinet\valinet\hooking\exeinject.h(332,9): message : consider using '%llx' in the format string
-C:\Users\alexm\Documents\awm\libraries\libvalinet\valinet\hooking\exeinject.h(332,9): message : consider using '%Ix' in the format string
-C:\Users\alexm\Documents\awm\libraries\libvalinet\valinet\hooking\exeinject.h(332,9): message : consider using '%I64x' in the format string
-C:\Users\alexm\Documents\awm\libraries\libvalinet\valinet\hooking\exeinject.h(365,9): warning C4477: 'wprintf' : format string '%d' requires an argument of type 'int', but variadic argument 1 has type 'FARPROC'
-C:\Users\alexm\Documents\awm\libraries\libvalinet\valinet\hooking\exeinject.h(365,9): warning C4313: 'wprintf': '%d' in format string conflicts with argument 1 of type 'FARPROC'
-C:\Users\alexm\Documents\awm\libraries\libvalinet\valinet\hooking\exeinject.h(386,9): warning C4477: 'wprintf' : format string '%d' requires an argument of type 'int', but variadic argument 1 has type 'FARPROC'
-C:\Users\alexm\Documents\awm\libraries\libvalinet\valinet\hooking\exeinject.h(386,9): warning C4313: 'wprintf': '%d' in format string conflicts with argument 1 of type 'FARPROC'
-C:\Users\alexm\Documents\awm\libraries\libvalinet\valinet\hooking\exeinject.h(777,41): warning C4312: 'type cast': conversion from 'DWORD' to 'HMODULE' of greater size
-C:\Users\alexm\Documents\awm\libraries\libvalinet\valinet\hooking\exeinject.h(981,13): warning C4477: 'wprintf' : format string '%d' requires an argument of type 'int', but variadic argument 1 has type 'SIZE_T'
-C:\Users\alexm\Documents\awm\libraries\libvalinet\valinet\hooking\exeinject.h(981,13): message : consider using '%lld' in the format string
-C:\Users\alexm\Documents\awm\libraries\libvalinet\valinet\hooking\exeinject.h(981,13): message : consider using '%Id' in the format string
-C:\Users\alexm\Documents\awm\libraries\libvalinet\valinet\hooking\exeinject.h(981,13): message : consider using '%I64d' in the format string
-C:\Users\alexm\Documents\awm\libraries\libvalinet\valinet\hooking\exeinject.h(981,13): warning C4477: 'wprintf' : format string '%d' requires an argument of type 'int', but variadic argument 2 has type 'size_t'
-C:\Users\alexm\Documents\awm\libraries\libvalinet\valinet\hooking\exeinject.h(981,13): message : consider using '%zd' in the format string
-C:\Users\alexm\Documents\awm\libraries\libvalinet\valinet\hooking\exeinject.h(1040,17): warning C4477: 'fprintf' : format string '%d' requires an argument of type 'int', but variadic argument 1 has type 'HWND'
-C:\Users\alexm\Documents\awm\libraries\libvalinet\valinet\hooking\exeinject.h(1040,17): warning C4313: 'fprintf': '%d' in format string conflicts with argument 1 of type 'HWND'
-C:\Users\alexm\Documents\awm\libraries\libvalinet\valinet\hooking\exeinject.h(1121,1): warning C4312: 'type cast': conversion from 'DWORD' to 'LPVOID' of greater size
-C:\Users\alexm\Documents\awm\libraries\libvalinet\valinet\internet\get.h(61,1): warning C4267: 'argument': conversion from 'size_t' to 'DWORD', possible loss of data
-C:\Users\alexm\Documents\awm\libraries\libvalinet\valinet\pdb\pdb.h(38,2): warning C4091: 'typedef ': ignored on left of '_PdbInfo' when no variable is declared
-C:\Users\alexm\Documents\awm\libraries\libvalinet\valinet\pdb\pdb.h(160,85): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\alexm\Documents\awm\libraries\libvalinet\valinet\pdb\pdb.h(284,19): warning C4018: '<': signed/unsigned mismatch
-C:\Users\alexm\Documents\awm\libraries\libvalinet\valinet\pdb\pdb.h(297,39): warning C4244: '=': conversion from 'DWORD64' to 'DWORD', possible loss of data
-C:\Users\alexm\Documents\awm\injector\awminject.cpp(29,25): warning C4390: ';': empty controlled statement found; is this the intent?
-C:\Users\alexm\Documents\awm\injector\awminject.cpp(35,10): warning C4390: ';': empty controlled statement found; is this the intent?
-C:\Users\alexm\Documents\awm\injector\awminject.cpp(26,10): warning C4101: 'szSymPath': unreferenced local variable
+C:\Users\alexm\Documents\aero-window-manager\libraries\libvalinet\valinet\hooking\exeinject.h(332,9): warning C4477: 'wprintf' : format string '%x' requires an argument of type 'unsigned int', but variadic argument 1 has type 'uintptr_t'
+C:\Users\alexm\Documents\aero-window-manager\libraries\libvalinet\valinet\hooking\exeinject.h(332,9): message : consider using '%llx' in the format string
+C:\Users\alexm\Documents\aero-window-manager\libraries\libvalinet\valinet\hooking\exeinject.h(332,9): message : consider using '%Ix' in the format string
+C:\Users\alexm\Documents\aero-window-manager\libraries\libvalinet\valinet\hooking\exeinject.h(332,9): message : consider using '%I64x' in the format string
+C:\Users\alexm\Documents\aero-window-manager\libraries\libvalinet\valinet\hooking\exeinject.h(365,9): warning C4477: 'wprintf' : format string '%d' requires an argument of type 'int', but variadic argument 1 has type 'FARPROC'
+C:\Users\alexm\Documents\aero-window-manager\libraries\libvalinet\valinet\hooking\exeinject.h(365,9): warning C4313: 'wprintf': '%d' in format string conflicts with argument 1 of type 'FARPROC'
+C:\Users\alexm\Documents\aero-window-manager\libraries\libvalinet\valinet\hooking\exeinject.h(386,9): warning C4477: 'wprintf' : format string '%d' requires an argument of type 'int', but variadic argument 1 has type 'FARPROC'
+C:\Users\alexm\Documents\aero-window-manager\libraries\libvalinet\valinet\hooking\exeinject.h(386,9): warning C4313: 'wprintf': '%d' in format string conflicts with argument 1 of type 'FARPROC'
+C:\Users\alexm\Documents\aero-window-manager\libraries\libvalinet\valinet\hooking\exeinject.h(777,41): warning C4312: 'type cast': conversion from 'DWORD' to 'HMODULE' of greater size
+C:\Users\alexm\Documents\aero-window-manager\libraries\libvalinet\valinet\hooking\exeinject.h(981,13): warning C4477: 'wprintf' : format string '%d' requires an argument of type 'int', but variadic argument 1 has type 'SIZE_T'
+C:\Users\alexm\Documents\aero-window-manager\libraries\libvalinet\valinet\hooking\exeinject.h(981,13): message : consider using '%lld' in the format string
+C:\Users\alexm\Documents\aero-window-manager\libraries\libvalinet\valinet\hooking\exeinject.h(981,13): message : consider using '%Id' in the format string
+C:\Users\alexm\Documents\aero-window-manager\libraries\libvalinet\valinet\hooking\exeinject.h(981,13): message : consider using '%I64d' in the format string
+C:\Users\alexm\Documents\aero-window-manager\libraries\libvalinet\valinet\hooking\exeinject.h(981,13): warning C4477: 'wprintf' : format string '%d' requires an argument of type 'int', but variadic argument 2 has type 'size_t'
+C:\Users\alexm\Documents\aero-window-manager\libraries\libvalinet\valinet\hooking\exeinject.h(981,13): message : consider using '%zd' in the format string
+C:\Users\alexm\Documents\aero-window-manager\libraries\libvalinet\valinet\hooking\exeinject.h(1040,17): warning C4477: 'fprintf' : format string '%d' requires an argument of type 'int', but variadic argument 1 has type 'HWND'
+C:\Users\alexm\Documents\aero-window-manager\libraries\libvalinet\valinet\hooking\exeinject.h(1040,17): warning C4313: 'fprintf': '%d' in format string conflicts with argument 1 of type 'HWND'
+C:\Users\alexm\Documents\aero-window-manager\libraries\libvalinet\valinet\hooking\exeinject.h(1121,1): warning C4312: 'type cast': conversion from 'DWORD' to 'LPVOID' of greater size
+C:\Users\alexm\Documents\aero-window-manager\libraries\libvalinet\valinet\internet\get.h(61,1): warning C4267: 'argument': conversion from 'size_t' to 'DWORD', possible loss of data
+C:\Users\alexm\Documents\aero-window-manager\libraries\libvalinet\valinet\pdb\pdb.h(38,2): warning C4091: 'typedef ': ignored on left of '_PdbInfo' when no variable is declared
+C:\Users\alexm\Documents\aero-window-manager\libraries\libvalinet\valinet\pdb\pdb.h(160,85): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\alexm\Documents\aero-window-manager\libraries\libvalinet\valinet\pdb\pdb.h(284,19): warning C4018: '<': signed/unsigned mismatch
+C:\Users\alexm\Documents\aero-window-manager\libraries\libvalinet\valinet\pdb\pdb.h(297,39): warning C4244: '=': conversion from 'DWORD64' to 'DWORD', possible loss of data
+C:\Users\alexm\Documents\aero-window-manager\injector\awminject.cpp(29,25): warning C4390: ';': empty controlled statement found; is this the intent?
+C:\Users\alexm\Documents\aero-window-manager\injector\awminject.cpp(35,10): warning C4390: ';': empty controlled statement found; is this the intent?
+C:\Users\alexm\Documents\aero-window-manager\injector\awminject.cpp(26,10): warning C4101: 'szSymPath': unreferenced local variable
   Generating code
+  Previous IPDB and IOBJ mismatch, fall back to full compilation.
+  All 14 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
   Finished generating code
-  10 of 14 functions (71.4%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    0 functions had inline decision re-evaluated but remain unchanged
-  injector.vcxproj -> C:\Users\alexm\Documents\awm\x64\Release\injector.exe
+  injector.vcxproj -> C:\Users\alexm\Documents\aero-window-manager\x64\Release\injector.exe

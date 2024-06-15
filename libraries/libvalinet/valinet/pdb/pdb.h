@@ -295,10 +295,12 @@ INT VnGetSymbols(
     {
         sym_info_t* sym_info = ((sym_info_t*)g_symbol_pool.base) + i;
         addresses[i] = sym_info->addr - VN_PDB_ADDRESS_OFFSET;
-        fprintf(
-            stream,
-            "%s\n", sym_info->name
-        );
+        if (stream != NULL) {
+            fprintf(
+                stream,
+                "%s\n", sym_info->name
+            );
+        }
     }
 
     // Done.
@@ -534,10 +536,12 @@ INT VnDownloadSymbols(
         pdb_info->PdbFileName
     );
 
-    fprintf(
-        stream,
-        "%s\n", szLibPath
-    );
+    if (stream != NULL) {
+        fprintf(
+            stream,
+            "%s\n", szLibPath
+        );
+    }
 
     UnmapViewOfFile(lpFileBase);
     CloseHandle(hFileMapping);

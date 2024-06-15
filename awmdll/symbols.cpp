@@ -32,10 +32,12 @@ int LoadSymbols(HMODULE* phModule, HMODULE* phudwm, HMODULE* phdwmcore, HMODULE*
     );
 
     rv = VnDownloadSymbols(NULL, (char*)"C:\\Windows\\system32\\uDWM.dll", szSymPath, _MAX_PATH, stream);
-    fprintf(
-        stream,
-        "ERROR %i\n", rv
-    );
+    if (stream != NULL) {
+        fprintf(
+            stream,
+            "ERROR %i\n", rv
+        );
+    }
 
     // WIDE STRING ADDED FOR MIOSSYMBOLS. OLD SYMPATH TO BE REMOVED ONCE LIBVALINET IS PHASED OUT OF THE SYMBOLS
     LPCWSTR szSymPathW = ATL::CA2W(szSymPath);
@@ -97,10 +99,12 @@ int LoadSymbols(HMODULE* phModule, HMODULE* phudwm, HMODULE* phdwmcore, HMODULE*
     );
 
     rv = VnDownloadSymbols(NULL, (char*)"C:\\Windows\\system32\\dwmcore.dll", szSymPath, _MAX_PATH, stream);
-    fprintf(
-        stream,
-        "ERROR %i\n", rv
-    );
+    if (stream != NULL) {
+        fprintf(
+            stream,
+            "ERROR %i\n", rv
+        );
+    }
 
     szSymPathW = ATL::CA2W(szSymPath);
 

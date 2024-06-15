@@ -1,3 +1,6 @@
+#define AWM_DEBUG FALSE
+
+#include <d2d1_1.h>
 #include <valinet/hooking/iatpatch.h>
 #include <awmclrconv.h>
 #include <stdio.h>
@@ -1435,7 +1438,7 @@ long CTLW_UpdateNCAreaPositionsAndSizes_Hook(BYTE* pThis) {
         
         // Changed from above to support my hacky method of handling text glow
         CVisual_SetInsetFromParentLeft(textVisual, 1);
-        CVisual_SetInsetFromParentRight(textVisual, insetRight);
+        CVisual_SetInsetFromParentRight(textVisual, 1);
         CVisual_SetSize(textVisual, &size);
 
         // place this somewhere it will update on window resize.
@@ -1444,6 +1447,7 @@ long CTLW_UpdateNCAreaPositionsAndSizes_Hook(BYTE* pThis) {
         //textex->tbWidth = winrc.right - winrc.left;
         textex->textInset = { 0 };
         textex->textInset.cxLeftWidth = insetLeft - 1;
+        textex->textInset.cxRightWidth = insetRight - 1;
     }
 
     CTopLevelWindow_UpdatePinnedParts(pThis); // Handles the atlas borders. A rewrite would be able to restore 7 behavior fully.
@@ -1649,7 +1653,7 @@ int CText_ValidateResources_Hook(BYTE* pThis) {
                         goto release;
 
                     size = target->GetSize();
-                    size.width -= textex->textInset.cxLeftWidth;
+                    size.width -= (textex->textInset.cxLeftWidth + textex->textInset.cxRightWidth);
                     if (size.width > 0) {
 
                         /*D2D1_COLOR_F colorText = {
@@ -1756,7 +1760,7 @@ int CText_ValidateResources_Hook(BYTE* pThis) {
                             goto release;
 
                         MARGINS insetFromParent = *(MARGINS*)(pThis + CVis_InsetFromParent);
-                        DWORD fullTBWidth = insetFromParent.cxLeftWidth + fillbox.right + insetFromParent.cxRightWidth;
+                        DWORD fullTBWidth = fillbox.right;
 
                         // This fixes the bug described below:
                         if (insetFromParent.cxLeftWidth == 0x7fffffff || insetFromParent.cxRightWidth == 0x7fffffff)
@@ -1872,6 +1876,7 @@ int CText_ValidateResources_Hook(BYTE* pThis) {
                         }
 
                         miostarget = (IMiosD2D1RenderTarget*)target;
+                        miostarget->SetAntialiasMode(D2D1_ANTIALIAS_MODE_ALIASED);
                         miostarget->DrawNineSliceBitmap(
                             atlasbitmap,
                             &glowdrawrect,
@@ -1880,11 +1885,14 @@ int CText_ValidateResources_Hook(BYTE* pThis) {
                             &glowsrcrect,
                             &sizingmargins
                         );
+                        miostarget->SetAntialiasMode(D2D1_ANTIALIAS_MODE_PER_PRIMITIVE);
 
                         target->SetTransform(D2D1::Matrix3x2F::Scale(1, 1) * trnsfrmmatrix);
 
+                        miostarget->PushAxisAlignedClip({ 0, 0, size.width, size.height }, D2D1_ANTIALIAS_MODE_ALIASED);
                         target->DrawTextLayout(startshadow, textlayout, shadowbrush, D2D1_DRAW_TEXT_OPTIONS_NONE);
                         target->DrawTextLayout(start, textlayout, textbrush, D2D1_DRAW_TEXT_OPTIONS_ENABLE_COLOR_FONT);
+                        miostarget->PopAxisAlignedClip();
 
                         hr = target->EndDraw();
                         if (hr < 0)
@@ -2283,17 +2291,19 @@ __declspec(dllexport) DWORD WINAPI main(DWORD* dword) {
     FILE* conout;
 
     stream = stdout;
+#if AWM_DEBUG == TRUE
     if (!AllocConsole());
-    if (freopen_s(
-        &conout,
-        "CONOUT$",
-        "w",
-        stdout)
-        );
-    fprintf(
-        stream,
-        "Aero Window Manager Logs\n========================\n"
-    );
+        if (freopen_s(
+            &conout,
+            "CONOUT$",
+            "w",
+            stdout)
+            );
+            fprintf(
+                stream,
+                "Aero Window Manager Logs\n========================\n"
+            );
+#endif
 
     // -------------------------------------------------------------------
 
