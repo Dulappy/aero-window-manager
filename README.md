@@ -14,6 +14,81 @@ MSVC runtime 2019 or later is required to run AWM. If the application doesn't la
 4. In a `cmd` process running as administrator, navigate to the folder that you unzipped PsTools into (for example `c:\pstools`) and run the following command: `psexec64 -s -i cmd.exe`. This should open a new Command Prompt window running as SYSTEM.
 5. In this new Command Prompt window, type `cd c:\awm` (or the folder you installed AWM to), followed by `injector`. The awmdll.dll process will download symbols from Microsoft's servers (saved to `C:\awm\symbols`), after which it will hook into different functions within DWM, modifying their behavior. Then, clicking on any window should update its appearance to match that produced by AWM.
 
+## Registry Keys
+| Key Name | Value Range | Default Value |
+| --- | --- | --- |
+| Window_CornerRadiusX | (0-inf) | 0 |
+| Window_CornerRadiusY | (0-inf) | 0 |
+| TB_ButtonAlign | (0-4) (top, center, tbcenter, bottom, full) | full |
+| TB_ButtonAlignPal | (0-4) (top, center, tbcenter, bottom, full) | top |
+| TB_TargetHeight | (0-inf) | 22 |
+| TB_TargetHeightPal | (0-inf) | 22 |
+| TB_XBtnHeight | (0-inf) | 30 |
+| TB_XBtnHeightLone | (0-inf) | 30 |
+| TB_XBtnHeightPal | (0-inf) | 20 |
+| TB_MidBtnHeight | (0-inf) | 30 |
+| TB_EdgeBtnHeight | (0-inf) | 30 |
+| TB_XBtnWidth | (0-inf) | 47 |
+| TB_XBtnWidthLone | (0-inf) | 34 |
+| TB_XBtnWidthPal | (0-inf) | 20 |
+| TB_MidBtnWidth | (0-inf) | 46 |
+| TB_EdgeBtnWidth | (0-inf) | 47 |
+| TB_XBtnInsTop | (-inf-inf) | 1 |
+| TB_XBtnInsTopLone | (-inf-inf) | 1 |
+| TB_MidBtnInsTop | (-inf-inf) | 1 |
+| TB_EdgeBtnInsTop | (-inf-inf) | 1 |
+| TB_XBtnInsTopMax | (-inf-inf) | 0 |
+| TB_XBtnInsTopLoneMax | (-inf-inf) | 0 |
+| TB_MidBtnInsTopMax | (-inf-inf) | 0 |
+| TB_EdgeBtnInsTopMax | (-inf-inf) | 0 |
+| TB_XBtnOffset | (-inf-inf) | -1 |
+| TB_XBtnOffsetMax | (-inf-inf) | 1 |
+| TB_XBtnOffsetPal | (-inf-inf) | 1 |
+| TB_XBtnAfter | (0-inf) | 0 |
+| TB_MidBtnAfter | (0-inf) | 0 |
+| TB_EdgeBtnAfter | (0-inf) | 0 |
+| TB_InsetLeftAdd | (0-inf) | 0 |
+| TB_InsetLeftMul | (0-inf) | 1 |
+| TB_InsetLeftAddMax | (0-inf) | 2 |
+| TB_InsetLeftMulMax | (0-inf) | 0 |
+| TB_TextInset | (0-inf) | 5 |
+| TB_BtnInactiveOpacity | (0-100) | 40 |
+| UseTransparency | (0-1) | 0 |
+| AccentPolicy | (0-4) | 0 |
+| Window_ColorRActive | (0-255) | 255 |
+| Window_ColorGActive | (0-255) | 255 |
+| Window_ColorBActive | (0-255) | 255 |
+| Window_ColorRInactive | (0-255) | 255 |
+| Window_ColorGInactive | (0-255) | 255 |
+| Window_ColorBInactive | (0-255) | 255 |
+| Window_ColorBalanceActive | (0-100) | 100 |
+| Window_ColorBalanceInactive | (0-100) | 100 |
+| Text_ColorRActive | (0-255) | 0 |
+| Text_ColorGActive | (0-255) | 0 |
+| Text_ColorBActive | (0-255) | 0 |
+| Text_ColorAActive | (0-255) | 255 |
+| Text_ColorRInactive | (0-255) | 0 |
+| Text_ColorGInactive | (0-255) | 0 |
+| Text_ColorBInactive | (0-255) | 0 |
+| Text_ColorAInactive | (0-255) | 102 |
+| Text_ShadowColorRActive | (0-255) | 0 |
+| Text_ShadowColorGActive | (0-255) | 0 |
+| Text_ShadowColorBActive | (0-255) | 0 |
+| Text_ShadowColorAActive | (0-255) | 0 |
+| Text_ShadowColorRInactive | (0-255) | 0 |
+| Text_ShadowColorGInactive | (0-255) | 0 |
+| Text_ShadowColorBInactive | (0-255) | 0 |
+| Text_ShadowColorAInactive | (0-255) | 0 |
+| Text_ShadowOffsetX | (-inf-inf) | 0 |
+| Text_ShadowOffsetY | (-inf-inf) | 0 |
+| Text_Alignment | (0-4) | left |
+| TB_IconTextVertAlign | (0-1) | center |
+| Text_GlowOpacityActive | (0-100) | 0 |
+| Text_GlowOpacityInactive | (0-100) | 0 |
+
+
+
+
 ## Credits
 Dulappy: AWM\
 Valinet: libvalinet\
