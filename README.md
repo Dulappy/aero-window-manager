@@ -48,9 +48,9 @@ MSVC runtime 2019 or later is required to run AWM. If the application doesn't la
 | TB_MidBtnAfter | (0-inf) | 0 |
 | TB_EdgeBtnAfter | (0-inf) | 0 |
 | TB_InsetLeftAdd | (0-inf) | 0 |
-| TB_InsetLeftMul | (0-inf) | 1 |
+| TB_InsetLeftMul | (0-inf) | 2 |
 | TB_InsetLeftAddMax | (0-inf) | 2 |
-| TB_InsetLeftMulMax | (0-inf) | 0 |
+| TB_InsetLeftMulMax | (0-inf) | 1 |
 | TB_TextInset | (0-inf) | 5 |
 | TB_BtnInactiveOpacity | (0-100) | 40 |
 | UseTransparency | (0-1) | 0 |
