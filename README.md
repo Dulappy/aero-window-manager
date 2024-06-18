@@ -1,11 +1,11 @@
 # Aero Window Manager
-Aero Window Manager is a configuration utility for modifying the metrics of objects drawn by DWM frames on Windows 10. It currently supports 1809 (build 17763), 1903/09 (builds 18362 and 18363), as well as 2004-22H2 (builds 19041-19045).
+Aero Window Manager is a configuration utility for modifying the metrics of objects drawn by DWM frames on Windows 10. The currently supported versions are 1809 (build 17763), 1903/09 (builds 18362 and 18363), as well as 2004-22H2 (builds 19041-19045).
 
 ## How to install
 
 MSVC runtime 2019 or later is required to run AWM. If the application doesn't launch after performing the steps below, please try installing that first.
 
-1. Unzip the contents of the file you downloaded to `C:\awm`. This should make the path of `awmdll.dll` be `C:\awm\awmdll.dll`. **NOTE**: You can name the root folder differently, but it has to be in the root of the C:\ drive for the application to function properly.
+1. Download the appropriate zip file for your version of Windows (If you're running Windows 10 Version 22H2, that would be the file labeled `2004-22H2.zip`). Unzip the contents of the file you downloaded to `C:\awm`. This should make the path of `awmdll.dll` be `C:\awm\awmdll.dll`. **NOTE**: You can name the root folder differently, but it has to be in the root of the C:\ drive to ensure the application functions properly.
 2. Open a `cmd` process as administrator and execute the command `regsvr32 c:\awm\msdia140_awm.dll`. A message should pop up telling you that the operation has succeeded.
 
 **NOTE**: Steps 3 and 4 can be bypassed by using Task Scheduler or any other way to launch an executable as SYSTEM.
