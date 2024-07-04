@@ -1,20 +1,63 @@
 # Aero Window Manager
-Aero Window Manager is a configuration utility for modifying the metrics of objects drawn by DWM frames on Windows 10. The currently supported versions are 1809 (build 17763), 1903/09 (builds 18362 and 18363), as well as 2004-22H2 (builds 19041-19045).
+Aero Window Manager is a configuration utility for modifying the metrics of
+objects drawn by DWM frames on Windows 10. The currently supported versions are
+1809 (build 17763), 1903/09 (builds 18362 and 18363), as well as 2004-22H2
+(builds 19041-19045).
 
 ## How to install
 
-MSVC runtime 2019 or later is required to run AWM. If the application doesn't launch after performing the steps below, please try installing that first.
+MSVC runtime 2019 or later is required to run AWM. If the application doesn't
+launch after performing the steps below, please try installing that first.
 
-1. Download the appropriate zip file for your version of Windows (If you're running Windows 10 Version 22H2, that would be the file labeled `2004-22H2.zip`). Unzip the contents of the file you downloaded to `C:\awm`. This should make the path of `awmdll.dll` be `C:\awm\awmdll.dll`. **NOTE**: You can name the root folder differently, but it has to be in the root of the C:\ drive to ensure the application functions properly.
-2. Open a `cmd` process as administrator and execute the command `regsvr32 c:\awm\msdia140_awm.dll`. A message should pop up telling you that the operation has succeeded.
+1. Download the appropriate zip file for your version of Windows (If you're
+   running Windows 10 Version 22H2, that would be the file labeled
+   `2004-22H2.zip`). Unzip the contents of the file you downloaded to `C:\awm`.
+   This should make the path of `awmdll.dll` be `C:\awm\awmdll.dll`. **NOTE**:
+   You can name the root folder differently, but it has to be in the root of
+   the C:\ drive to ensure the application functions properly.
+2. Open a `cmd` process as administrator and execute the command `regsvr32
+   c:\awm\msdia140_awm.dll`. A message should pop up telling you that the
+   operation has succeeded.
 
-**NOTE**: Steps 3 and 4 can be bypassed by using Task Scheduler or any other way to launch an executable as SYSTEM.
+**NOTE**: Steps 3 and 4 can be bypassed by using Task Scheduler or any other
+way to launch an executable as SYSTEM.
 
-3. Download [PsTools](https://learn.microsoft.com/en-us/sysinternals/downloads/pstools).
-4. In a `cmd` process running as administrator, navigate to the folder that you unzipped PsTools into (for example `c:\pstools`) and run the following command: `psexec64 -s -i cmd.exe`. This should open a new Command Prompt window running as SYSTEM.
-5. In this new Command Prompt window, type `cd c:\awm` (or the folder you installed AWM to), followed by `injector`. The awmdll.dll process will download symbols from Microsoft's servers (saved to `C:\awm\symbols`), after which it will hook into different functions within DWM, modifying their behavior. Then, clicking on any window should update its appearance to match that produced by AWM.
+3. Download
+   [PsTools](https://learn.microsoft.com/en-us/sysinternals/downloads/pstools).
+4. In a `cmd` process running as administrator, navigate to the folder that you
+   unzipped PsTools into (for example `c:\pstools`) and run the following
+   command: `psexec64 -s -i cmd.exe`. This should open a new Command Prompt
+   window running as SYSTEM.
+5. In this new Command Prompt window, type `cd c:\awm` (or the folder you
+   installed AWM to), followed by `injector`. The awmdll.dll process will
+   download symbols from Microsoft's servers (saved to `C:\awm\symbols`), after
+   which it will hook into different functions within DWM, modifying their
+   behavior. Then, clicking on any window should update its appearance to match
+   that produced by AWM.
+
+## How to build
+
+You need CMake and the v142 / VS 2019 toolset (use the VS installer to make
+sure) to compile; this assumes CMake uses MSVC 2022 by default.
+
+To compile for Release|x64, first open Developer Command Prompt (x64), then
+type these commands:
+
+```
+cd libraries/funchook
+mkdir build
+cd build
+cmake -T v142 ..
+cmake --build . --config=release
+cd ../../..
+msbuild -p:configuration=release -p:platform=x64 awm.sln
+```
+
+Now the output directory should appear, and you should be able to copy them to
+`c:/awm`.
 
 ## Registry Keys
+
 | Key Name | Value Range | Default Value |
 | --- | --- | --- |
 | Window_CornerRadiusX | (0-inf) | 0 |
@@ -95,4 +138,5 @@ Valinet: libvalinet\
 Neptune: Temporary GUI\
 Microsoft: msdia140.dll
 
-I might be forgetting minor contributors. If you think you've contributed to anything in the project, please let me know.
+I might be forgetting minor contributors. If you think you've contributed to
+anything in the project, please let me know.
