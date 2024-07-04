@@ -1,0 +1,3 @@
+[submodule "libraries/libvalinet"]
+	path = libraries/libvalinet
+	url = https://github.com/valinet/libvalinet.git
