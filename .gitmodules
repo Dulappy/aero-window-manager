@@ -4,3 +4,6 @@
 [submodule "libraries/funchook"]
 	path = libraries/funchook
 	url = https://github.com/kubo/funchook.git
+[submodule "libraries/distorm"]
+	path = libraries/distorm
+	url = https://github.com/gdabah/distorm.git
