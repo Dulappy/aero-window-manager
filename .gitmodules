@@ -1,3 +1,6 @@
 [submodule "libraries/libvalinet"]
 	path = libraries/libvalinet
 	url = https://github.com/valinet/libvalinet.git
+[submodule "libraries/funchook"]
+	path = libraries/funchook
+	url = https://github.com/kubo/funchook.git
