@@ -1,9 +1,6 @@
 [submodule "libraries/libvalinet"]
 	path = libraries/libvalinet
-	url = https://github.com/valinet/libvalinet.git
+	url = https://github.com/wily-coyote/libvalinet.git
 [submodule "libraries/funchook"]
 	path = libraries/funchook
 	url = https://github.com/kubo/funchook.git
-[submodule "libraries/distorm"]
-	path = libraries/distorm
-	url = https://github.com/gdabah/distorm.git

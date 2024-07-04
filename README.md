@@ -1,4 +1,5 @@
 # Aero Window Manager
+
 Aero Window Manager is a configuration utility for modifying the metrics of
 objects drawn by DWM frames on Windows 10. The currently supported versions are
 1809 (build 17763), 1903/09 (builds 18362 and 18363), as well as 2004-22H2
@@ -40,10 +41,10 @@ way to launch an executable as SYSTEM.
 You need CMake and the v142 / VS 2019 toolset (use the VS installer to make
 sure) to compile; this assumes CMake uses MSVC 2022 by default.
 
-To compile for Release|x64, first open Developer Command Prompt (x64), then
-type these commands:
+To compile for Release|x64, open Developer Command Prompt (x64) and type these
+commands:
 
-```
+```batch
 cd libraries/funchook
 mkdir build
 cd build
@@ -53,11 +54,12 @@ cd ../../..
 msbuild -p:configuration=release -p:platform=x64 awm.sln
 ```
 
-Now the output directory should appear, and you should be able to copy them to
-`c:/awm`.
+Now the output directory should appear, and you should be able to copy its
+contents to `c:/awm`.
 
 ## Registry Keys
 
+These reside in `HKLM/Software/AWM`.
 | Key Name | Value Range | Default Value |
 | --- | --- | --- |
 | Window_CornerRadiusX | (0-inf) | 0 |
@@ -128,9 +130,6 @@ Now the output directory should appear, and you should be able to copy them to
 | TB_IconTextVertAlign | (0-1) | center |
 | Text_GlowOpacityActive | (0-100) | 0 |
 | Text_GlowOpacityInactive | (0-100) | 0 |
-
-
-
 
 ## Credits
 Dulappy: AWM\
