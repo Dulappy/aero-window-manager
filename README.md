@@ -49,7 +49,7 @@ cd libraries/funchook
 mkdir build
 cd build
 cmake -T v142 ..
-cmake --build . --config=release
+cmake --build . --config release
 cd ../../..
 msbuild -p:configuration=release -p:platform=x64 awm.sln
 ```
