@@ -73,7 +73,7 @@ int main(){
     hEvent = OpenEvent( EVENT_MODIFY_STATE, FALSE, TEXT("awmsettingschanged") );
     if(hEvent == NULL) return GetLastError();
     SetEvent(hEvent);
-    return ERROR_SUCCESS;
+    return GetLastError();
 }
 ```
 
