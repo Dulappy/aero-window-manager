@@ -57,6 +57,26 @@ msbuild -p:configuration=release -p:platform=x64 awm.sln
 Now the output directory should appear, and you should be able to copy its
 contents to `c:/awm`.
 
+## Technical - how to update AWM settings during runtime
+
+awmdll, the DLL loaded into DWM, uses [Win32's Event Objects](https://learn.microsoft.com/en-us/windows/win32/sync/using-event-objects)
+to update its settings from `HKLM/Software/AWM`. The event name is
+"awmsettingschanged."
+
+Example C code to update the settings (won't work if AWM isn't already
+running):
+
+```c
+#include <windows.h>
+int main(){
+    HANDLE hEvent = NULL;
+    hEvent = OpenEvent( EVENT_MODIFY_STATE, FALSE, TEXT("awmsettingschanged") );
+    if(hEvent == NULL) return GetLastError();
+    SetEvent(hEvent);
+    return ERROR_SUCCESS;
+}
+```
+
 ## Registry Keys
 
 These reside in `HKLM/Software/AWM`.
