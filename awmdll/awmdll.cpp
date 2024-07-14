@@ -1,4 +1,4 @@
-#define AWM_DEBUG TRUE
+#define AWM_DEBUG FALSE
 
 #include <d2d1_1.h>
 #include <valinet/hooking/iatpatch.h>
