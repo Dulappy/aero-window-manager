@@ -1,4 +1,4 @@
-#define AWM_DEBUG FALSE
+#define AWM_DEBUG TRUE
 
 #include <d2d1_1.h>
 #include <valinet/hooking/iatpatch.h>
@@ -1437,20 +1437,37 @@ long CTLW_UpdateNCAreaPositionsAndSizes_Hook(BYTE* pThis) {
         //CVisual_SetInsetFromParentLeft(textVisual, insetLeft);
         
         // Changed from above to support my hacky method of handling text glow
-        CVisual_SetInsetFromParentLeft(textVisual, 1);
+        CVisual_SetInsetFromParentLeft(textVisual, 1 + borderSizes->cxLeftWidth);
         CVisual_SetInsetFromParentRight(textVisual, 1);
         CVisual_SetSize(textVisual, &size);
 
         // place this somewhere it will update on window resize.
         TEXTEX* textex = *(TEXTEX**)(textVisual + CTxt_Ex);
-        RECT winrc = *(RECT*)(windowVisual + CWD_WindowRect);
+        //RECT winrc = *(RECT*)(windowVisual + CWD_WindowRect);
         //textex->tbWidth = winrc.right - winrc.left;
         textex->textInset = { 0 };
-        textex->textInset.cxLeftWidth = insetLeft - 1;
+        textex->textInset.cxLeftWidth = insetLeft - 1 - borderSizes->cxLeftWidth;
         textex->textInset.cxRightWidth = insetRight - 1;
+
+
+        // SOME TESTING CODE. IT CAN BE SAFELY REMOVED AND IS NOT SUPPOSED TO BE HERE.
+
+        /*RECT rc = {winrc.left + borderSizes->cxLeftWidth,
+            winrc.top + borderSizes->cyTopHeight,
+            winrc.right + borderSizes->cxRightWidth,
+            winrc.bottom + borderSizes->cyBottomHeight,
+        };
+
+        float DPI = *(float*)(windowVisual + CWD_DPIFloat);
+        *(float*)(windowVisual + CWD_DPIFloat) = 1.f;
+        fprintf(stream, "%f\n", DPI);
+        fprintf(stream, "%i\n", *(int*)(windowVisual + CWD_WindowRectRight));
+        HRGN rgn = CreateRectRgnIndirect(&winrc);
+        SetWindowRgnEx(*(HWND*)(windowVisual + CWD_HWND), rgn, 1);
+        DeleteObject(rgn);*/
     }
 
-    CTopLevelWindow_UpdatePinnedParts(pThis); // Handles the atlas borders. A rewrite would be able to restore 7 behavior fully.
+    CTopLevelWindow_UpdatePinnedParts(pThis); // Handles the atlas borders. A rewrite would be able to restore 7 behavior fully (except thickening of small kernel frames).
 
     return 0;
 }
@@ -2005,10 +2022,7 @@ HRGN AWM_CreateRoundRectRgn(int x1, int x2, int y1, int y2, int w, int h) {
 
 int HookFunctions() {
 
-    SetWindowRgnEx = (SetWindowRgnEx_t)(
-        (uintptr_t)huser32 +
-        (uintptr_t)addresses_user32[0]
-        );
+    SetWindowRgnEx = (SetWindowRgnEx_t)GetProcAddress(huser32, "SetWindowRgnEx");
 
 #if TARGETBUILD == 19041 || TARGETBUILD == 18362
     CRD_DrawSolidColorRectangle_orig = (CRD_DrawSolidColorRectangle_t)(

@@ -26,7 +26,7 @@ C:\Users\alexm\Documents\aero-window-manager\injector\awminject.cpp(29,25): warn
 C:\Users\alexm\Documents\aero-window-manager\injector\awminject.cpp(35,10): warning C4390: ';': empty controlled statement found; is this the intent?
 C:\Users\alexm\Documents\aero-window-manager\injector\awminject.cpp(26,10): warning C4101: 'szSymPath': unreferenced local variable
   Generating code
-  Previous IPDB and IOBJ mismatch, fall back to full compilation.
+  Previous IPDB not found, fall back to full compilation.
   All 14 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
   Finished generating code
   injector.vcxproj -> C:\Users\alexm\Documents\aero-window-manager\x64\Release\injector.exe

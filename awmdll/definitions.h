@@ -6,7 +6,7 @@
 * 18362 (1903-1909)
 * 17763 (1809)
 */
-#define TARGETBUILD     19041
+#define TARGETBUILD     17763
 
 #define VER_MAJOR 0
 #define VER_MINOR 1
@@ -60,7 +60,7 @@
 // CWindowData definitions
 #define CWD_HWND        40
 
-#define CWD_WindowRect			48
+#define CWD_WindowRectAlt		48
 #define CWD_WindowRectLeft		CWD_WindowRect
 #define CWD_WindowRectTop		CWD_WindowRect + 4
 #define CWD_WindowRectRight		CWD_WindowRect + 8
@@ -74,7 +74,7 @@
 
 #define CWD_WinStyle    100
 #define CWD_WinStyleEx  104
-#define CWD_DPIFloat    304
+#define CWD_DPIFloat    304		// Actually contains the scaling amount of the client area.
 
 #define CWD_AccentPolicy    152
 #define CWD_WindowRect      180

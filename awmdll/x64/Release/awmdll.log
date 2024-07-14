@@ -4,8 +4,6 @@ C:\Users\alexm\Documents\aero-window-manager\libraries\libvalinet\valinet\hookin
 C:\Users\alexm\Documents\aero-window-manager\libraries\libvalinet\valinet\hooking\iatpatch.h(125,113): warning C4311: 'type cast': pointer truncation from 'PSTR' to 'DWORD'
 C:\Users\alexm\Documents\aero-window-manager\libraries\libvalinet\valinet\hooking\iatpatch.h(125,113): warning C4302: 'type cast': truncation from 'PSTR' to 'DWORD'
 C:\Users\alexm\Documents\aero-window-manager\awmdll\awmclrconv.h(53,49): warning C4305: 'initializing': truncation from 'double' to 'float'
-C:\Users\alexm\Documents\aero-window-manager\awmdll\definitions.h(80,1): warning C4005: 'CWD_WindowRect': macro redefinition
-C:\Users\alexm\Documents\aero-window-manager\awmdll\definitions.h(63): message : see previous definition of 'CWD_WindowRect'
 C:\Users\alexm\Documents\aero-window-manager\awmdll\awmtypes.h(148,32): warning C4305: 'initializing': truncation from 'double' to 'float'
 C:\Users\alexm\Documents\aero-window-manager\awmdll\awmdll.cpp(406,54): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
 C:\Users\alexm\Documents\aero-window-manager\awmdll\awmdll.cpp(412,56): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
@@ -26,20 +24,19 @@ C:\Users\alexm\Documents\aero-window-manager\awmdll\awmdll.cpp(1259,26): warning
 C:\Users\alexm\Documents\aero-window-manager\awmdll\awmdll.cpp(1260,27): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
 C:\Users\alexm\Documents\aero-window-manager\awmdll\awmdll.cpp(1281,59): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
 C:\Users\alexm\Documents\aero-window-manager\awmdll\awmdll.cpp(1377,23): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-C:\Users\alexm\Documents\aero-window-manager\awmdll\awmdll.cpp(1787,57): warning C4244: 'argument': conversion from 'DWORD' to 'FLOAT', possible loss of data
-C:\Users\alexm\Documents\aero-window-manager\awmdll\awmdll.cpp(1836,53): warning C4244: '=': conversion from 'LONG' to 'FLOAT', possible loss of data
-C:\Users\alexm\Documents\aero-window-manager\awmdll\awmdll.cpp(1837,52): warning C4244: '=': conversion from 'LONG' to 'FLOAT', possible loss of data
-C:\Users\alexm\Documents\aero-window-manager\awmdll\awmdll.cpp(1838,54): warning C4244: '=': conversion from 'LONG' to 'FLOAT', possible loss of data
-C:\Users\alexm\Documents\aero-window-manager\awmdll\awmdll.cpp(1839,55): warning C4244: '=': conversion from 'LONG' to 'FLOAT', possible loss of data
-C:\Users\alexm\Documents\aero-window-manager\awmdll\awmdll.cpp(1843,66): warning C4244: '=': conversion from 'int' to 'FLOAT', possible loss of data
-C:\Users\alexm\Documents\aero-window-manager\awmdll\awmdll.cpp(1850,45): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-C:\Users\alexm\Documents\aero-window-manager\awmdll\awmdll.cpp(1856,44): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-C:\Users\alexm\Documents\aero-window-manager\awmdll\awmdll.cpp(1869,106): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
-C:\Users\alexm\Documents\aero-window-manager\awmdll\awmdll.cpp(2287,55): warning C4326: return type of 'main' should be 'int' instead of 'DWORD'
-C:\Users\alexm\Documents\aero-window-manager\awmdll\awmdll.cpp(2291,11): warning C4101: 'conout': unreferenced local variable
+C:\Users\alexm\Documents\aero-window-manager\awmdll\awmdll.cpp(1804,57): warning C4244: 'argument': conversion from 'DWORD' to 'FLOAT', possible loss of data
+C:\Users\alexm\Documents\aero-window-manager\awmdll\awmdll.cpp(1853,53): warning C4244: '=': conversion from 'LONG' to 'FLOAT', possible loss of data
+C:\Users\alexm\Documents\aero-window-manager\awmdll\awmdll.cpp(1854,52): warning C4244: '=': conversion from 'LONG' to 'FLOAT', possible loss of data
+C:\Users\alexm\Documents\aero-window-manager\awmdll\awmdll.cpp(1855,54): warning C4244: '=': conversion from 'LONG' to 'FLOAT', possible loss of data
+C:\Users\alexm\Documents\aero-window-manager\awmdll\awmdll.cpp(1856,55): warning C4244: '=': conversion from 'LONG' to 'FLOAT', possible loss of data
+C:\Users\alexm\Documents\aero-window-manager\awmdll\awmdll.cpp(1860,66): warning C4244: '=': conversion from 'int' to 'FLOAT', possible loss of data
+C:\Users\alexm\Documents\aero-window-manager\awmdll\awmdll.cpp(1867,45): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\alexm\Documents\aero-window-manager\awmdll\awmdll.cpp(1873,44): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\alexm\Documents\aero-window-manager\awmdll\awmdll.cpp(1886,106): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
+C:\Users\alexm\Documents\aero-window-manager\awmdll\awmdll.cpp(2301,55): warning C4326: return type of 'main' should be 'int' instead of 'DWORD'
+C:\Users\alexm\Documents\aero-window-manager\awmdll\awmdll.cpp(2309,25): warning C4390: ';': empty controlled statement found; is this the intent?
+C:\Users\alexm\Documents\aero-window-manager\awmdll\awmdll.cpp(2315,14): warning C4390: ';': empty controlled statement found; is this the intent?
   symbols.cpp
-C:\Users\alexm\Documents\aero-window-manager\awmdll\definitions.h(80,1): warning C4005: 'CWD_WindowRect': macro redefinition
-C:\Users\alexm\Documents\aero-window-manager\awmdll\definitions.h(63): message : see previous definition of 'CWD_WindowRect'
 C:\Users\alexm\Documents\aero-window-manager\libraries\libvalinet\valinet\ini\ini.h(98,31): warning C4267: 'initializing': conversion from 'size_t' to 'DWORD', possible loss of data
 C:\Users\alexm\Documents\aero-window-manager\libraries\libvalinet\valinet\internet\get.h(61,1): warning C4267: 'argument': conversion from 'size_t' to 'DWORD', possible loss of data
 C:\Users\alexm\Documents\aero-window-manager\libraries\libvalinet\valinet\pdb\pdb.h(38,2): warning C4091: 'typedef ': ignored on left of '_PdbInfo' when no variable is declared
@@ -48,7 +45,7 @@ C:\Users\alexm\Documents\aero-window-manager\libraries\libvalinet\valinet\pdb\pd
 C:\Users\alexm\Documents\aero-window-manager\libraries\libvalinet\valinet\pdb\pdb.h(297,39): warning C4244: '=': conversion from 'DWORD64' to 'DWORD', possible loss of data
      Creating library C:\Users\alexm\Documents\aero-window-manager\x64\Release\awmdll.lib and object C:\Users\alexm\Documents\aero-window-manager\x64\Release\awmdll.exp
   Generating code
-  8 of 226 functions ( 3.5%) were compiled, the rest were copied from previous compilation.
+  6 of 226 functions ( 2.7%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
     3 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
