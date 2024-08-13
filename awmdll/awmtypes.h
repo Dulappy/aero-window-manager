@@ -180,6 +180,8 @@ struct _awmsettings {
     float textGlowOpacityInactive = 0.4f;
 
     AWM_TEXT_ALIGNMENT textAlignment = AWM_TEXT_LEFT;
+    
+    D2D1_TEXT_ANTIALIAS_MODE textAntiAlias = D2D1_TEXT_ANTIALIAS_MODE_DEFAULT;
 
     ACCENT accent = ACCENT_DISABLED;
 
