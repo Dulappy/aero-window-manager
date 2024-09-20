@@ -150,11 +150,13 @@ These reside in `HKLM/Software/AWM`.
 | TB_IconTextVertAlign | (0-1) | center |
 | Text_GlowOpacityActive | (0-100) | 0 |
 | Text_GlowOpacityInactive | (0-100) | 0 |
+| Text_AntiAlias | (0-3) (default, cleartype, grayscale, aliased) | 0 |
 
 ## Credits
 Dulappy: AWM\
 Valinet: libvalinet\
 Neptune: Temporary GUI\
+Wily Coyote: Text antialiasing and repo cleanup\
 Microsoft: msdia140.dll
 
 I might be forgetting minor contributors. If you think you've contributed to
