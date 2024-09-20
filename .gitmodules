@@ -1,0 +1,6 @@
+[submodule "libraries/libvalinet"]
+	path = libraries/libvalinet
+	url = https://github.com/wily-coyote/libvalinet.git
+[submodule "libraries/funchook"]
+	path = libraries/funchook
+	url = https://github.com/kubo/funchook.git

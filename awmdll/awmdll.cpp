@@ -543,6 +543,12 @@ int LoadSettingsFromRegistry() {
     if (!rv) {
         awmsettings.textGlowOpacityInactive = (float)data / 100.f;
     }
+    cbData = 4;
+    data = NULL;
+    rv = RegQueryValueEx(awmkey, L"Text_AntiAlias", NULL, NULL, (LPBYTE)&data, &cbData);
+    if (!rv) {
+        awmsettings.textAntiAlias = (D2D1_TEXT_ANTIALIAS_MODE)data;
+    }
 
     RegCloseKey(awmkey);
 
@@ -1907,8 +1913,10 @@ int CText_ValidateResources_Hook(BYTE* pThis) {
                         target->SetTransform(D2D1::Matrix3x2F::Scale(1, 1) * trnsfrmmatrix);
 
                         miostarget->PushAxisAlignedClip({ 0, 0, size.width, size.height }, D2D1_ANTIALIAS_MODE_ALIASED);
+			target->SetTextAntialiasMode(awmsettings.textAntiAlias);
                         target->DrawTextLayout(startshadow, textlayout, shadowbrush, D2D1_DRAW_TEXT_OPTIONS_NONE);
                         target->DrawTextLayout(start, textlayout, textbrush, D2D1_DRAW_TEXT_OPTIONS_ENABLE_COLOR_FONT);
+			target->SetTextAntialiasMode(D2D1_TEXT_ANTIALIAS_MODE_DEFAULT);
                         miostarget->PopAxisAlignedClip();
 
                         hr = target->EndDraw();

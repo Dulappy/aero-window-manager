@@ -1,3 +1,0 @@
-﻿     Creating library C:\Users\alexm\Documents\awm\x64\Debug\awmdll.lib and object C:\Users\alexm\Documents\awm\x64\Debug\awmdll.exp
-awmdll.obj : error LNK2019: unresolved external symbol funchook_create referenced in function main
-C:\Users\alexm\Documents\awm\x64\Debug\awmdll.dll : fatal error LNK1120: 1 unresolved externals
