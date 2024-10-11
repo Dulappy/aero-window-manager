@@ -25,6 +25,11 @@ int main() {
     TCHAR szLibPath[_MAX_PATH];
     CHAR szSymPath[_MAX_PATH];
 
+    // Prevent multiple instances (causes DWM crash loop)
+    CreateMutex(NULL, TRUE, L"AWM_Injector");
+    if (ERROR_ALREADY_EXISTS == GetLastError())
+        return 1;
+
     stream = stdout;
     if (!AllocConsole());
     if (freopen_s(
