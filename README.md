@@ -21,7 +21,7 @@ launch after performing the steps below, please try installing that first.
 
 ## How to build
 
-You need CMake and the v142 / VS 2019 toolset (use the VS installer to make
+You need CMake and the v143 / VS 2022 toolset (use the VS installer to make
 sure) to compile; this assumes CMake uses MSVC 2022 by default.
 
 To compile for Release|x64, open Developer Command Prompt (x64) and type these
@@ -31,7 +31,7 @@ commands:
 cd libraries/funchook
 mkdir build
 cd build
-cmake -T v142 ..
+cmake -T v143 ..
 cmake --build . --config release
 cd ../../..
 msbuild -p:configuration=release -p:platform=x64 awm.sln
