@@ -1,0 +1,6 @@
+x86/
+x64/
+**/x86
+**/x64
+libraries/**/build
+.vs

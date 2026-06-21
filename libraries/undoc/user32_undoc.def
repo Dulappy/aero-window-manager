@@ -1,0 +1,4 @@
+; user32_undoc.def
+LIBRARY user32.dll
+EXPORTS
+    SetWindowRgnEx
