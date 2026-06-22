@@ -2,6 +2,9 @@
 #include "awmdll.h"
 #include "awmerrors.h"
 
+#include <Windows.h>
+#include <stdint.h>
+
 HMODULE hModule = NULL;
 FILE* stream = NULL;
 funchook_t* funchook = NULL;
@@ -91,4 +94,9 @@ BOOL WINAPI DllMain(
         break;
     }
     return TRUE;
+}
+
+// Dummy function so I can rewrite other functions properly. This is just debugger stuff anyways.
+void MilInstrumentationCheckHR(int32_t, int32_t*, int64_t, int32_t, uint32_t) {
+    printf("Something went wrong somewhere.\n");
 }

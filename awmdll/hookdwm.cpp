@@ -24,6 +24,7 @@
 
 LPCWSTR symNames[] = {
     CTLW_UpdateWindowRegion_Name,
+    CTLW_UpdateInputTransform_Name,
 };
 const uint32_t symAmount = sizeof(symNames) / sizeof(symNames[0]);
 
@@ -80,16 +81,20 @@ int LoadSymbols(HMODULE* phModule, HMODULE* phudwm, DWORD addresses[], LPCWSTR s
 //  HOOKED FUNCTION TYPE DEFINITIONS
 // ===========================================================================
 
-typedef bool (*CTLW_UpdateWindowRegion_t)(void* pThis);
+typedef void (*CTLW_UpdateWindowRegion_t)(void* pThis);
 CTLW_UpdateWindowRegion_t CTLW_UpdateWindowRegion_orig;
+
+typedef HRESULT (*CTLW_UpdateInputTransform_t)(void* pThis);
+CTLW_UpdateInputTransform_t CTLW_UpdateInputTransform_orig;
 
 // ===========================================================================
 //  HELPER FUNCTIONS
 // ===========================================================================
 
-void* GetCTLWMemberFnPtr(void (CTopLevelWindow::* pmf)())
+template <typename Fn>
+void* GetMemberFnPtr(Fn pmf)
 {
-    union { void (CTopLevelWindow::* pmf)(); void* ptr; } u;
+    union { Fn pmf; void* ptr; } u;
     u.pmf = pmf;
     return u.ptr;
 }
@@ -104,9 +109,18 @@ int HookFunctions() {
         (uintptr_t)uDWM_addresses[0]
         );
 
+    CTLW_UpdateInputTransform_orig = (CTLW_UpdateInputTransform_t)(
+        (uintptr_t)hudwm +
+        (uintptr_t)uDWM_addresses[1]
+        );
+
     // Funchook stuff
     int rv = 0;
-    rv = funchook_prepare(funchook, (void**)&CTLW_UpdateWindowRegion_orig, GetCTLWMemberFnPtr(&CTopLevelWindow::UpdateWindowRegion));
+    rv = funchook_prepare(funchook, (void**)&CTLW_UpdateWindowRegion_orig, GetMemberFnPtr(&CTopLevelWindow::UpdateWindowRegion));
+    if (rv) {
+        return ERR_FH_INIT;
+    }
+    rv = funchook_prepare(funchook, (void**)&CTLW_UpdateInputTransform_orig, GetMemberFnPtr(&CTopLevelWindow::UpdateInputTransform));
     if (rv) {
         return ERR_FH_INIT;
     }

@@ -4,6 +4,9 @@ This is a branch of Aero Window Manager, which works on Windows 7. The goal is
 to create a proper codebase for everything else to be based on, as well as tinker
 with Windows 7's DWM.
 
+**NOTE:** This version of AWM is not feature complete, and may never be. This is
+simply an experiment.
+
 ## How to install
 
 MSVC runtime 2015 (v14.0) or later is required to run AWM. If the application doesn't

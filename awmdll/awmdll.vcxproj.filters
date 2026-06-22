@@ -27,6 +27,9 @@
     <ClCompile Include="toplevelwindow.cpp">
       <Filter>Source Files\udwm</Filter>
     </ClCompile>
+    <ClCompile Include="globals.cpp">
+      <Filter>Source Files\udwm</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="hookdwm.h">
@@ -43,6 +46,9 @@
     </ClInclude>
     <ClInclude Include="awmerrors.h">
       <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="globals.h">
+      <Filter>Source Files\udwm</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
