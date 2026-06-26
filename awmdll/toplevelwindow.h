@@ -42,4 +42,4 @@ public:
 static_assert(offsetof(CTopLevelWindow, m_bWindowStateFlags) == 0x0E0, "ERROR: m_bWindowStateFlags not in the correct position!");
 static_assert(offsetof(CTopLevelWindow, m_marBorderOutset) == 0x28C, "ERROR: m_marBorderOutset not in the correct position!");
 static_assert(offsetof(CTopLevelWindow, m_marBorderOutsetMax) == 0x29C, "ERROR: m_marBorderOutsetMax not in the correct position!");
-static_assert(offsetof(CTopLevelWindow, m_pWindowData) == 0x2C8, "ERROR: m_bWindowStateFlags not in the correct position!");
+static_assert(offsetof(CTopLevelWindow, m_pWindowData) == 0x2C8, "ERROR: m_pWindowData not in the correct position!");

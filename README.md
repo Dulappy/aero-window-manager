@@ -14,12 +14,12 @@ launch after performing the steps below, please try installing that first.
 
 1. Compile the software using the Release (x64) branch.
 2. Copy msdia140.dll from `libraries\mioslibs\miossymbols\diasdk\bin\amd64` of
-   the repository, into `<install directory>msdia140_awm.dll` (i.e., `C:\awm\
+   the repository, into `<install directory>\msdia140_awm.dll` (i.e., `C:\awm\
    msdia140_awm.dll`).
 3. Open a `cmd` process as administrator and execute the command `regsvr32
    <install directory>\msdia140_awm.dll`. A message should pop up letting you know
    that the operation has succeeded.
-4. Run the injector as a user, as DWM runs like any other user process on
+4. Run the injector as a user, since DWM runs like any other user process on
    Windows 7.
 
 ## How to build

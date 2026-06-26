@@ -5,6 +5,7 @@
 
 #include <stdio.h>
 #include <math.h>
+#include <float.h>
 
 void CTopLevelWindow::UpdateWindowRegion() {
     CWindowData* pData = m_pWindowData;
@@ -18,11 +19,8 @@ void CTopLevelWindow::UpdateWindowRegion() {
         ? m_marBorderOutsetMax
         : m_marBorderOutset;
 
-    // Zero but with a margin of error.
-    constexpr float kScaleEpsilon = 1.192e-6f;  // 0x35A00000 = 1.25 * 2^-20
-
     float scaleX = pData->m_fScaleX;
-    if (fabsf(scaleX) >= kScaleEpsilon)
+    if (fabsf(scaleX) >= FLT_EPSILON)
     {
         if (pMargins.cxLeftWidth < 0)
             localRect.left += (int)floor((double)pMargins.cxLeftWidth / scaleX + 0.5);
@@ -31,7 +29,7 @@ void CTopLevelWindow::UpdateWindowRegion() {
     }
 
     float scaleY = pData->m_fScaleY;
-    if (fabsf(scaleY) >= kScaleEpsilon)
+    if (fabsf(scaleY) >= FLT_EPSILON)
     {
         if (pMargins.cyTopHeight < 0)
             localRect.top += (int)floor((double)pMargins.cyTopHeight / scaleY + 0.5);
@@ -64,14 +62,11 @@ HRESULT CTopLevelWindow::UpdateInputTransform() {
     if (pData->m_pHwnd == nullptr)
         return S_OK;
 
-    constexpr float kOne = 1.0f;
-    constexpr float kEpsilon = 1.192e-6f;
-
     float scaleX = pData->m_fScaleX;
     float scaleY = pData->m_fScaleY;
 
-    bool bIsIdentity = (fabsf(scaleX - kOne) < kEpsilon) &&
-        (fabsf(scaleY - kOne) < kEpsilon);
+    bool bIsIdentity = (fabsf(scaleX - 1.0f) < FLT_EPSILON) &&
+        (fabsf(scaleY - 1.0f) < FLT_EPSILON);
 
     bool bWasIdentity = (this->m_bWindowStateFlags & kHasDefaultScale) != 0;
     if (bWasIdentity && bIsIdentity)
