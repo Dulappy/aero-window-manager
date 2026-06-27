@@ -30,6 +30,15 @@
     <ClCompile Include="globals.cpp">
       <Filter>Source Files\udwm</Filter>
     </ClCompile>
+    <ClCompile Include="visual.cpp">
+      <Filter>Source Files\udwm</Filter>
+    </ClCompile>
+    <ClCompile Include="baseobject.cpp">
+      <Filter>Source Files\udwm</Filter>
+    </ClCompile>
+    <ClCompile Include="windowdata.cpp">
+      <Filter>Source Files\udwm</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="hookdwm.h">
@@ -48,6 +57,12 @@
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="globals.h">
+      <Filter>Source Files\udwm</Filter>
+    </ClInclude>
+    <ClInclude Include="visual.h">
+      <Filter>Source Files\udwm</Filter>
+    </ClInclude>
+    <ClInclude Include="baseobject.h">
       <Filter>Source Files\udwm</Filter>
     </ClInclude>
   </ItemGroup>

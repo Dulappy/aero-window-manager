@@ -119,3 +119,39 @@ HRESULT CTopLevelWindow::UpdateInputTransform() {
 
     return hr;
 }
+
+void CTopLevelWindow::UpdateWindowScale() {
+    CVisual* pFrame = this->m_pFrameVisual;
+    CWindowData* pData = this->m_pWindowData;
+
+    float fScaleX = pData->m_fScaleX_copy;
+    float fScaleY = pData->m_fScaleY_copy;
+
+    if (pFrame != nullptr) {
+
+        pFrame->SetScale((double)fScaleX, (double)fScaleY);
+
+        // Determine interpolation mode based on whether scale = identity
+        float diffX = fabsf(pData->m_fScaleX_copy - 1.0f);
+        if (diffX >= FLT_EPSILON)
+        {
+            pFrame->ClearInterpolationMode();
+            goto check_nc_background;
+        }
+
+        float diffY = fabsf(pData->m_fScaleY_copy - 1.0f);
+        if (diffY >= FLT_EPSILON)
+        {
+            pFrame->ClearInterpolationMode();
+            goto check_nc_background;
+        }
+
+        // Both scales are identity, use nearest-neighbor (no filtering needed)
+        pFrame->SetInterpolationMode(MilBitmapInterpolationMode_NearestNeighbor);
+    }
+
+check_nc_background:
+    CVisual* pNCBG = this->m_pNCBackgroundVisual;
+    if (pNCBG != nullptr)
+        pNCBG->SetScale((double)fScaleX, (double)fScaleY);
+}

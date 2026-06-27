@@ -9,6 +9,15 @@ extern HRESULT g_hrExpected_EAccessDenied;
 extern HRESULT g_hrExpected_InvalidHandle;
 extern HRESULT g_hrExpected_EInvalidArg;
 
+enum MilBitmapInterpolationMode
+{
+    MilBitmapInterpolationMode_NearestNeighbor = 0,
+    MilBitmapInterpolationMode_Linear = 1,
+    // (further values not observed)
+};
+
+typedef struct MIL_CHANNEL__* MIL_CHANNEL; // Dummy. Points to a CMilChannel object in dwmcore.dll.
+
 struct D2DMatrix
 {
     float m[4][4];

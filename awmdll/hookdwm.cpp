@@ -25,6 +25,7 @@
 LPCWSTR symNames[] = {
     CTLW_UpdateWindowRegion_Name,
     CTLW_UpdateInputTransform_Name,
+    CTLW_UpdateWindowScale_Name,
 };
 const uint32_t symAmount = sizeof(symNames) / sizeof(symNames[0]);
 
@@ -87,6 +88,9 @@ CTLW_UpdateWindowRegion_t CTLW_UpdateWindowRegion_orig;
 typedef HRESULT (*CTLW_UpdateInputTransform_t)(void* pThis);
 CTLW_UpdateInputTransform_t CTLW_UpdateInputTransform_orig;
 
+typedef void (*CTLW_UpdateWindowScale_t)(void* pThis);
+CTLW_UpdateWindowScale_t CTLW_UpdateWindowScale_orig;
+
 // ===========================================================================
 //  HELPER FUNCTIONS
 // ===========================================================================
@@ -114,6 +118,11 @@ int HookFunctions() {
         (uintptr_t)uDWM_addresses[1]
         );
 
+    CTLW_UpdateWindowScale_orig = (CTLW_UpdateWindowScale_t)(
+        (uintptr_t)hudwm +
+        (uintptr_t)uDWM_addresses[1]
+        );
+
     // Funchook stuff
     int rv = 0;
     rv = funchook_prepare(funchook, (void**)&CTLW_UpdateWindowRegion_orig, GetMemberFnPtr(&CTopLevelWindow::UpdateWindowRegion));
@@ -121,6 +130,10 @@ int HookFunctions() {
         return ERR_FH_INIT;
     }
     rv = funchook_prepare(funchook, (void**)&CTLW_UpdateInputTransform_orig, GetMemberFnPtr(&CTopLevelWindow::UpdateInputTransform));
+    if (rv) {
+        return ERR_FH_INIT;
+    }
+    rv = funchook_prepare(funchook, (void**)&CTLW_UpdateWindowScale_orig, GetMemberFnPtr(&CTopLevelWindow::UpdateWindowScale));
     if (rv) {
         return ERR_FH_INIT;
     }

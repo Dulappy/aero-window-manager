@@ -137,15 +137,20 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="awmdll.cpp" />
+    <ClCompile Include="baseobject.cpp" />
     <ClCompile Include="globals.cpp" />
     <ClCompile Include="toplevelwindow.cpp" />
     <ClCompile Include="hookdwm.cpp" />
+    <ClCompile Include="visual.cpp" />
+    <ClCompile Include="windowdata.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="awmdll.h" />
     <ClInclude Include="awmerrors.h" />
+    <ClInclude Include="baseobject.h" />
     <ClInclude Include="globals.h" />
     <ClInclude Include="toplevelwindow.h" />
+    <ClInclude Include="visual.h" />
     <ClInclude Include="windowdata.h" />
     <ClInclude Include="hookdwm.h" />
   </ItemGroup>
