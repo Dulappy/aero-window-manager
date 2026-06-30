@@ -2,10 +2,17 @@
 #include "math.h"
 #include "float.h"
 
+HANDLE g_hProcessHeap = nullptr;
+
 BYTE g_bUpdateWindowTransformOnce = 0;
 HRESULT g_hrExpected_EAccessDenied = 0;
 HRESULT g_hrExpected_InvalidHandle = 0;
 HRESULT g_hrExpected_EInvalidArg = 0;
+
+// Dummy function so I can rewrite other functions properly. This is just debugger stuff anyways.
+void MilInstrumentationCheckHR(int32_t, int32_t*, int64_t, int32_t, uint32_t) {
+    printf("Something went wrong somewhere.\n");
+}
 
 // ===========================================================================
 //  D2DMatrix Functions

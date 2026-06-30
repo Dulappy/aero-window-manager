@@ -8,3 +8,5 @@
 #define ERR_MODULE -3 // Failed to load uDWM module.
 
 #define ERR_SYMBOLFAILURE -4 // Generic symbol loading failure.
+
+#define ERR_FAILEDTOGETHEAP -5 // Failed to get process heap.

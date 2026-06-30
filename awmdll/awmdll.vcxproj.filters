@@ -39,6 +39,15 @@
     <ClCompile Include="windowdata.cpp">
       <Filter>Source Files\udwm</Filter>
     </ClCompile>
+    <ClCompile Include="button.cpp">
+      <Filter>Source Files\udwm</Filter>
+    </ClCompile>
+    <ClCompile Include="resource.cpp">
+      <Filter>Source Files\udwm</Filter>
+    </ClCompile>
+    <ClCompile Include="desktopmanager.cpp">
+      <Filter>Source Files\udwm</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="hookdwm.h">
@@ -63,6 +72,15 @@
       <Filter>Source Files\udwm</Filter>
     </ClInclude>
     <ClInclude Include="baseobject.h">
+      <Filter>Source Files\udwm</Filter>
+    </ClInclude>
+    <ClInclude Include="button.h">
+      <Filter>Source Files\udwm</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Source Files\udwm</Filter>
+    </ClInclude>
+    <ClInclude Include="desktopmanager.h">
       <Filter>Source Files\udwm</Filter>
     </ClInclude>
   </ItemGroup>

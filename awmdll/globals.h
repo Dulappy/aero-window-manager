@@ -1,13 +1,19 @@
 #pragma once
 #include <Windows.h>
 #include <d3d10.h>
+#include <stdint.h>
+#include <stdio.h>
 
 #define E_INVALIDWINDOWHANDLE _HRESULT_TYPEDEF_(0x80070578)
+
+extern HANDLE g_hProcessHeap;
 
 extern BYTE g_bUpdateWindowTransformOnce;
 extern HRESULT g_hrExpected_EAccessDenied;
 extern HRESULT g_hrExpected_InvalidHandle;
 extern HRESULT g_hrExpected_EInvalidArg;
+
+void MilInstrumentationCheckHR(int32_t, int32_t*, int64_t, int32_t, uint32_t);
 
 enum MilBitmapInterpolationMode
 {

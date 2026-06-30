@@ -8,6 +8,7 @@
 #include "awmerrors.h"
 #include "funchook.h"
 
+#include "baseobject.h"
 #include "toplevelwindow.h"
 #include "windowdata.h"
 
@@ -27,6 +28,12 @@ LPCWSTR symNames[] = {
     CTLW_UpdateInputTransform_Name,
     CTLW_UpdateWindowScale_Name,
 };
+void* hookedFns[] = {
+    GetMemberFnPtr(&CTopLevelWindow::UpdateWindowRegion),
+    GetMemberFnPtr(&CTopLevelWindow::UpdateInputTransform),
+    GetMemberFnPtr(&CTopLevelWindow::UpdateWindowScale),
+};
+
 const uint32_t symAmount = sizeof(symNames) / sizeof(symNames[0]);
 
 // symbol address list
@@ -79,19 +86,6 @@ int LoadSymbols(HMODULE* phModule, HMODULE* phudwm, DWORD addresses[], LPCWSTR s
 }
 
 // ===========================================================================
-//  HOOKED FUNCTION TYPE DEFINITIONS
-// ===========================================================================
-
-typedef void (*CTLW_UpdateWindowRegion_t)(void* pThis);
-CTLW_UpdateWindowRegion_t CTLW_UpdateWindowRegion_orig;
-
-typedef HRESULT (*CTLW_UpdateInputTransform_t)(void* pThis);
-CTLW_UpdateInputTransform_t CTLW_UpdateInputTransform_orig;
-
-typedef void (*CTLW_UpdateWindowScale_t)(void* pThis);
-CTLW_UpdateWindowScale_t CTLW_UpdateWindowScale_orig;
-
-// ===========================================================================
 //  HELPER FUNCTIONS
 // ===========================================================================
 
@@ -107,35 +101,16 @@ void* GetMemberFnPtr(Fn pmf)
 //  HOOK FUNCTIONS
 // ===========================================================================
 
+// For this project, since I don't plan on calling any of the original functions, keeping their addresses is pointless.
 int HookFunctions() {
-    CTLW_UpdateWindowRegion_orig = (CTLW_UpdateWindowRegion_t)(
-        (uintptr_t)hudwm +
-        (uintptr_t)uDWM_addresses[0]
-        );
-
-    CTLW_UpdateInputTransform_orig = (CTLW_UpdateInputTransform_t)(
-        (uintptr_t)hudwm +
-        (uintptr_t)uDWM_addresses[1]
-        );
-
-    CTLW_UpdateWindowScale_orig = (CTLW_UpdateWindowScale_t)(
-        (uintptr_t)hudwm +
-        (uintptr_t)uDWM_addresses[1]
-        );
-
-    // Funchook stuff
     int rv = 0;
-    rv = funchook_prepare(funchook, (void**)&CTLW_UpdateWindowRegion_orig, GetMemberFnPtr(&CTopLevelWindow::UpdateWindowRegion));
-    if (rv) {
-        return ERR_FH_INIT;
-    }
-    rv = funchook_prepare(funchook, (void**)&CTLW_UpdateInputTransform_orig, GetMemberFnPtr(&CTopLevelWindow::UpdateInputTransform));
-    if (rv) {
-        return ERR_FH_INIT;
-    }
-    rv = funchook_prepare(funchook, (void**)&CTLW_UpdateWindowScale_orig, GetMemberFnPtr(&CTopLevelWindow::UpdateWindowScale));
-    if (rv) {
-        return ERR_FH_INIT;
+
+    for (int i = 0; i < symAmount; i++) {
+        void* addr = (void*)((uintptr_t)hudwm + (uintptr_t)uDWM_addresses[i]);
+        rv = funchook_prepare(funchook, (void**)&addr, hookedFns[i]);
+        if (rv) {
+            return ERR_FH_INIT;
+        }
     }
 
     rv = funchook_install(funchook, 0);

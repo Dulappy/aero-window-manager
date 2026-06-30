@@ -2,18 +2,15 @@
 #include "awmdll.h"
 #include "globals.h"
 #include "baseobject.h"
+#include "resource.h"
 
 #include <Windows.h>
 #include <Uxtheme.h>
 
 class CVisual : public CBaseObject {
 public:
-    // CBaseObject occupies [+0x00..+0x17]:
-    //   [+0x00]  void* vtable          - overridden by CVisual's (then CTopLevelWindow's)
-    //   [+0x08..+0x17]   CBaseObject fields (ref count etc.; exact layout not reversed)
-    BYTE         _pad_cbase[0x10];         // CBaseObject fields after vtable [+0x08..+0x17]
-
-    CVisual* m_pParent;                // +0x18  parent in composition tree;
+    CResource*   m_pResource;               // +0x10  MIL composition resource
+    CVisual*     m_pParent;                 // +0x18  parent in composition tree;
     //        NULL at construction, set by
     //        VisualCollection::InsertRelative when
     //        this visual is added as a child.
@@ -35,7 +32,7 @@ public:
 
     SIZE         m_szSize;                 // +0x70  visual size in pixels {cx, cy}
 
-    _MARGINS     m_rcInsets;               // +0x78  inset from each parent edge
+    MARGINS      m_marInsets;              // +0x78  inset from each parent edge
     //        Initialised to INT_MAX in CVisual ctor.
 
     BYTE         _pad2[0x08];              // +0x88..+0x8F  (zero-init)
@@ -110,11 +107,12 @@ public:
     HRESULT Initialize(MIL_CHANNEL* pChannel);
 };
 
+static_assert(offsetof(CVisual, m_cRef) == 0x08, "ERROR: m_cRef not in the correct position!");
 static_assert(offsetof(CVisual, m_pParent) == 0x18, "ERROR: m_pParent not in the correct position!");
 static_assert(offsetof(CVisual, m_dwDirtyFlags) == 0x50, "ERROR: m_dwDirtyFlags not in the correct position!");
 static_assert(offsetof(CVisual, m_ptOffset) == 0x68, "ERROR: m_ptOffset not in the correct position!");
 static_assert(offsetof(CVisual, m_szSize) == 0x70, "ERROR: m_szSize not in the correct position!");
-static_assert(offsetof(CVisual, m_rcInsets) == 0x78, "ERROR: m_rcInsets not in the correct position!");
+static_assert(offsetof(CVisual, m_marInsets) == 0x78, "ERROR: m_marInsets not in the correct position!");
 static_assert(offsetof(CVisual, m_dScaleX) == 0x90, "ERROR: m_dScaleX not in the correct position!");
 static_assert(offsetof(CVisual, m_dScaleY) == 0x98, "ERROR: m_dScaleY not in the correct position!");
 static_assert(offsetof(CVisual, m_dOpacity) == 0xA0, "ERROR: m_dOpacity not in the correct position!");

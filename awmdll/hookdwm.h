@@ -14,5 +14,8 @@
 extern LPCWSTR symNames[];
 extern DWORD uDWM_addresses[];
 
+template <typename Fn>
+void* GetMemberFnPtr(Fn pmf);
+
 int LoadSymbols(HMODULE* phModule, HMODULE* phudwm, DWORD addresses[], LPCWSTR symNames[], FILE* stream);
 int HookFunctions();

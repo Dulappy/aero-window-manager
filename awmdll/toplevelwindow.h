@@ -10,19 +10,24 @@
 class CTopLevelWindow : public CVisual {
 public:
     BYTE         _pad0[0x18];          
-    CVisual*     m_pNCBackgroundVisual; // +0x108
-    BYTE         _pad1[0xE8];
+    CVisual*     m_pClientBlurVisual;   // +0x108
+    BYTE         _pad1[0xE0];
+    CVisual*     m_pContentVisual;      // +0x1f0
     CButton*     m_pButtonHelp;         // +0x1f8
     CButton*     m_pButtonMinimize;     // +0x200
     CButton*     m_pButtonMaximize;     // +0x208
     CButton*     m_pButtonClose;        // +0x210
     BYTE         _pad2[0x18];
-    CVisual*     m_pFrameVisual;        // +0x230
+    CVisual*     m_pFrameVisual;        // +0x230 (Seems to be the grandparent of m_pContentVisual, although there don't seem to be many differences in what they control)
     BYTE         _pad3[0x54];
     MARGINS      m_marBorderOutset;     // +0x28C
     MARGINS      m_marBorderOutsetMax;  // +0x29C
     BYTE         _pad4[0x1C];
     CWindowData* m_pWindowData;         // +0x2C8
+
+    // -------- STATIC VARIABLES --------
+    static MARGINS s_marMinInflationThickness;
+    static int s_iDpiIndex;
 
     enum WindowStateFlags : uint8_t {
         kEmpty                  = 0x00,
@@ -47,11 +52,15 @@ public:
     void UpdateWindowScale();
     HRESULT UpdateNCAreaButton(ButtonType eType, INT cyButton, INT cyTop, INT* pcxButtonRow);
     HRESULT UpdatePinnedParts();
+
+    static void CalculateOutsideMargins(CWindowData* pData, UINT dwFlags, _MARGINS* pOutMargins);
+    static HRESULT ReadSystemMetrics();
+    static HRESULT EnsureWindowFrames();
 };
 
 // Compile-time offset assertions
 
-static_assert(offsetof(CTopLevelWindow, m_pNCBackgroundVisual) == 0x108, "ERROR: m_pNCBackgroundVisual not in the correct position!");
+static_assert(offsetof(CTopLevelWindow, m_pClientBlurVisual) == 0x108, "ERROR: m_pClientBlurVisual not in the correct position!");
 static_assert(offsetof(CTopLevelWindow, m_pButtonHelp) == 0x1f8, "ERROR: m_pButtonHelp not in the correct position!"); // This catches the other three below it too.
 static_assert(offsetof(CTopLevelWindow, m_pFrameVisual) == 0x230, "ERROR: m_pFrameVisual not in the correct position!");
 static_assert(offsetof(CTopLevelWindow, m_marBorderOutset) == 0x28C, "ERROR: m_marBorderOutset not in the correct position!");

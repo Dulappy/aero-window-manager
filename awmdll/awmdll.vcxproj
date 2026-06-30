@@ -138,7 +138,10 @@
   <ItemGroup>
     <ClCompile Include="awmdll.cpp" />
     <ClCompile Include="baseobject.cpp" />
+    <ClCompile Include="button.cpp" />
+    <ClCompile Include="desktopmanager.cpp" />
     <ClCompile Include="globals.cpp" />
+    <ClCompile Include="resource.cpp" />
     <ClCompile Include="toplevelwindow.cpp" />
     <ClCompile Include="hookdwm.cpp" />
     <ClCompile Include="visual.cpp" />
@@ -148,7 +151,10 @@
     <ClInclude Include="awmdll.h" />
     <ClInclude Include="awmerrors.h" />
     <ClInclude Include="baseobject.h" />
+    <ClInclude Include="button.h" />
+    <ClInclude Include="desktopmanager.h" />
     <ClInclude Include="globals.h" />
+    <ClInclude Include="resource.h" />
     <ClInclude Include="toplevelwindow.h" />
     <ClInclude Include="visual.h" />
     <ClInclude Include="windowdata.h" />

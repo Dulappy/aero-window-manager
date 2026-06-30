@@ -1,6 +1,7 @@
 #include "hookdwm.h"
 #include "awmdll.h"
 #include "awmerrors.h"
+#include "globals.h"
 
 #include <Windows.h>
 #include <stdint.h>
@@ -10,6 +11,18 @@ FILE* stream = NULL;
 funchook_t* funchook = NULL;
 
 HMODULE hudwm = NULL;
+
+HANDLE AWM::Init::GetHeap() {
+    g_hProcessHeap = GetProcessHeap();
+    return g_hProcessHeap;
+}
+void* AWM::HeapImpl::Alloc(size_t cb) {
+    if (cb == 0) cb = 1;
+    return HeapAlloc(g_hProcessHeap, 0, cb);
+}
+void AWM::HeapImpl::Free(void* p) {
+    if (p) HeapFree(g_hProcessHeap, 0, p);
+}
 
 __declspec(dllexport) DWORD WINAPI main(DWORD* dword) {
     int rv = 0;
@@ -35,6 +48,11 @@ __declspec(dllexport) DWORD WINAPI main(DWORD* dword) {
 #endif
 
     // -------------------------------------------------------------------
+
+    if (!AWM::Init::GetHeap()) {
+        rv = ERR_FAILEDTOGETHEAP;
+        goto cleanup;
+    }
 
     rv = LoadSymbols(&hModule, &hudwm, uDWM_addresses, symNames, stream);
     if (rv != AWM_SUCCESS) {
@@ -94,9 +112,4 @@ BOOL WINAPI DllMain(
         break;
     }
     return TRUE;
-}
-
-// Dummy function so I can rewrite other functions properly. This is just debugger stuff anyways.
-void MilInstrumentationCheckHR(int32_t, int32_t*, int64_t, int32_t, uint32_t) {
-    printf("Something went wrong somewhere.\n");
 }

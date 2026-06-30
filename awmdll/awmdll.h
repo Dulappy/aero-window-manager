@@ -21,4 +21,12 @@ extern HMODULE hudwm;
 extern "C" BOOL WINAPI SetWindowRgnEx(HWND hWnd, HRGN hRgn, BOOL bRedraw);
 extern "C" BOOL WINAPI UpdateWindowTransform(HWND hWnd, D2DMatrix* pMatrix, BOOL bSomething);
 
-void MilInstrumentationCheckHR(int32_t, int32_t*, int64_t, int32_t, uint32_t);
+namespace AWM {
+    namespace Init {
+        HANDLE GetHeap();
+    }
+    namespace HeapImpl {
+        void* Alloc(size_t cb);
+        void Free(void* p);
+    }
+}

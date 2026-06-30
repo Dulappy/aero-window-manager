@@ -100,39 +100,39 @@ void CVisual::SetOffset(const POINT* pOffset) {
 }
 
 void CVisual::SetInsetFromParentLeft(INT left) {
-    if (this->m_rcInsets.cxLeftWidth == left) return;
-    this->m_rcInsets.cxLeftWidth = left;
+    if (this->m_marInsets.cxLeftWidth == left) return;
+    this->m_marInsets.cxLeftWidth = left;
     this->SetDirtyFlags(kDirtyGeometry);
 }
 
 void CVisual::SetInsetFromParentRight(INT right) {
-    if (this->m_rcInsets.cxRightWidth == right) return;
-    this->m_rcInsets.cxRightWidth = right;
+    if (this->m_marInsets.cxRightWidth == right) return;
+    this->m_marInsets.cxRightWidth = right;
     this->SetDirtyFlags(kDirtyGeometry);
 }
 
 void CVisual::SetInsetFromParentTop(INT top) {
-    if (this->m_rcInsets.cyTopHeight == top) return;
-    this->m_rcInsets.cyTopHeight = top;
+    if (this->m_marInsets.cyTopHeight == top) return;
+    this->m_marInsets.cyTopHeight = top;
     this->SetDirtyFlags(kDirtyGeometry);
 }
 
 void CVisual::SetInsetFromParentBottom(INT bottom) {
-    if (this->m_rcInsets.cyBottomHeight == bottom) return;
-    this->m_rcInsets.cyBottomHeight = bottom;
+    if (this->m_marInsets.cyBottomHeight == bottom) return;
+    this->m_marInsets.cyBottomHeight = bottom;
     this->SetDirtyFlags(kDirtyGeometry);
 }
 
 void CVisual::SetInsetFromParent(const _MARGINS& margins) {
-    if (this->m_rcInsets.cyTopHeight == margins.cyTopHeight &&
-        this->m_rcInsets.cxLeftWidth == margins.cxLeftWidth &&
-        this->m_rcInsets.cxRightWidth == margins.cxRightWidth &&
-        this->m_rcInsets.cyBottomHeight == margins.cyBottomHeight)
+    if (this->m_marInsets.cyTopHeight == margins.cyTopHeight &&
+        this->m_marInsets.cxLeftWidth == margins.cxLeftWidth &&
+        this->m_marInsets.cxRightWidth == margins.cxRightWidth &&
+        this->m_marInsets.cyBottomHeight == margins.cyBottomHeight)
         return;
 
-    this->m_rcInsets.cyTopHeight = margins.cyTopHeight;
-    this->m_rcInsets.cxLeftWidth = margins.cxLeftWidth;
-    this->m_rcInsets.cxRightWidth = margins.cxRightWidth;
-    this->m_rcInsets.cyBottomHeight = margins.cyBottomHeight;
+    this->m_marInsets.cyTopHeight = margins.cyTopHeight;
+    this->m_marInsets.cxLeftWidth = margins.cxLeftWidth;
+    this->m_marInsets.cxRightWidth = margins.cxRightWidth;
+    this->m_marInsets.cyBottomHeight = margins.cyBottomHeight;
     this->SetDirtyFlags(kDirtyGeometry);
 }
